@@ -1,0 +1,28 @@
+{
+  "name": "angular-async",
+  "version": "0.0.1",
+  "description": "Async unwrap filters for AngularJS 1.x",
+  "main": "angular-async.js",
+  "directories": {
+    "example": "examples"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "gdi2290 <github@gdi2290.com>",
+  "license": "MIT",
+  "keywords": [
+    "angular",
+    "angularjs",
+    "unwrap",
+    "promise unwrap",
+    "async",
+    "await",
+    "angular-async",
+    "angular-await",
+    "ngAsync",
+    "ngAwait",
+    "gdi2290",
+    "PatrickJS"
+  ]
+}
