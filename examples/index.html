@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html ng-app="App">
+<head>
+  <title>angular-async</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0-beta.5/angular.js"></script>
+  <script src="../angular-async.js"></script>
+</head>
+<body ng-controller="MainController">
+
+  <button ng-click="!$$phase && $digest()">$digest</button>
+  <ul>
+    <li ng-repeat="item in (items | async)">
+      {{ (item | await).content  | uppercase }}
+    </li>
+  </ul>
+
+
+<script type="text/javascript">
+  angular.module('App', ['ngAsync'])
+  .factory('List', function($q, $timeout) {
+    var _list_ = [
+      {
+        content: 'Testing'
+      },
+      {
+        content: 'Another test'
+      },
+      $timeout(function() {
+        return {
+          content: 'Async test'
+        };
+      }, 2000)
+    ];
+
+    var state = {
+      list: $timeout(function() {
+        return _list_;
+      }, 1000)
+    };
+
+    return {
+      get: function(type) {
+        return type && state[type] || state;
+      }
+    };
+  })
+  .controller('MainController', function($scope, $$q, $q, List) {
+
+    $scope.items = List.get('list');
+
+  });
+</script>
+
+</body>
+</html>
