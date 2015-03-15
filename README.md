@@ -8,3 +8,6 @@ Async unwrap filters for AngularJS 1.x
     </li>
   </ul>
 ```
+
+
+sidenote: `async` and `await` are the same only aliased
